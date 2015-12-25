@@ -335,7 +335,8 @@
         },
         update: function() {
           var disabledClass = namespace + 'disabled';
-          if (slider.pagingCount === 1) {
+          
+          if (slider.pagingCount === 1 || slider.count < slider.visible) {
             slider.directionNav.addClass(disabledClass).attr('tabindex', '-1');
           } else if (!slider.vars.animationLoop) {
             if (slider.animatingTo === 0) {
