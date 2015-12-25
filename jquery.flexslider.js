@@ -320,8 +320,10 @@
             var target;
 
             if (watchedEvent === "" || watchedEvent === event.type) {
-              target = ($(this).hasClass(namespace + 'next')) ? slider.getTarget('next') : slider.getTarget('prev');
-              slider.flexAnimate(target, slider.vars.pauseOnAction);
+              if (!$(this).hasClass(namespace + 'disabled')) {
+                target = ($(this).hasClass(namespace + 'next')) ? slider.getTarget('next') : slider.getTarget('prev');
+                slider.flexAnimate(target, slider.vars.pauseOnAction);
+              }
             }
 
             // setup flags to prevent event duplication
