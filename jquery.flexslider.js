@@ -35,6 +35,9 @@
     // Private slider methods
     methods = {
       init: function() {
+      // API: beforeInit() Callback
+        slider.vars.beforeInit(slider);
+
         slider.animating = false;
         // Get current slide and make sure it is a number
         slider.currentSlide = parseInt( ( slider.vars.startAt ? slider.vars.startAt : 0), 10 );
@@ -1157,7 +1160,9 @@
     end: function(){},              //Callback: function(slider) - Fires when the slider reaches the last slide (asynchronous)
     added: function(){},            //{NEW} Callback: function(slider) - Fires after a slide is added
     removed: function(){},           //{NEW} Callback: function(slider) - Fires after a slide is removed
-    init: function() {}             //{NEW} Callback: function(slider) - Fires after the slider is initially setup
+    init: function() {},             //{NEW} Callback: function(slider) - Fires after the slider is initially setup
+    // will be called before the above `init` method(to modify slider html structure or more.)
+    beforeInit: function() {}             //{NEW} Callback: function(slider) - Fires before the methods.init is called
   };
 
   //FlexSlider: Plugin Function
