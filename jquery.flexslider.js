@@ -35,9 +35,6 @@
     // Private slider methods
     methods = {
       init: function() {
-      // API: beforeInit() Callback
-        slider.vars.beforeInit(slider);
-
         slider.animating = false;
         // Get current slide and make sure it is a number
         slider.currentSlide = parseInt( ( slider.vars.startAt ? slider.vars.startAt : 0), 10 );
@@ -1085,6 +1082,9 @@
       // FlexSlider: removed() Callback
       slider.vars.removed(slider);
     };
+
+    // API: beforeInit() Callback
+    slider.vars.beforeInit(slider);
 
     //FlexSlider: Initialize
     methods.init();
